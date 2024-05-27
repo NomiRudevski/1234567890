@@ -5,6 +5,8 @@ class Menu(Enum):
     PRINT = 2
     EXIT = 3
 
+animals = []
+
 class Animal():
     def __init__(self, name, legs, type):
         self.name = name
@@ -12,11 +14,22 @@ class Animal():
         self.type = type
 
     def __str__(self) -> str:
-        return {f"{self.name}, {self.legs}, {self.type}"}
+        return {f"name:{self.name}, legs:{self.legs}, type:{self.type}"}
+    
+def print_menu():
+    for action in Menu:
+        print(f'{action.value} - {action.name}')
+    
+    return input("selection: ")
 
-animal1 = Animal('bob', 4, 'cat')
-animal2 = Animal('petunia', 2, 'ostridge')
-animal3 = Animal('robert', 8, 'spider')
+def add_animal():
+    temp_animal = Animal(input('name: ') ,int(input('legs: ')), input('type: '))
+    animals.append(temp_animal)
+
+def print_animals():
+    for animal in animals:
+        print(animal)
 
 if __name__ == "__main___":
-    pass
+    while True:
+        pass
